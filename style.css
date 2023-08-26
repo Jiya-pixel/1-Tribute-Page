@@ -1,0 +1,358 @@
+:root {
+    --color-white: #ffffff;
+    --color-red: #de6262;
+
+    --max-width: calc(1200rem / 16);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+
+img,
+picture,
+figure,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+ul[role=list],
+ol[role=list] {
+    list-style: none;
+}
+
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+.container {
+    width: min(var(--max-width), 100% - 3em);
+    margin-inline: auto;
+}
+
+.box {
+    padding: 0.5em;
+    border: 2px solid #ececec;
+    border-radius: 0.2em;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: calc(16rem / 16);
+    font-weight: 400;
+}
+
+.link {
+    color: var(--color-red);
+}
+
+.heading-1 {
+    font-size: 2rem;
+    margin-bottom: 0.25em;
+}
+
+.heading-2 {
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.heading-2::after {
+    content: '';
+    display: block;
+    width: calc(75rem / 16);
+    height: 0.25rem;
+    background-color: var(--color-red);
+    margin: 1rem auto;
+}
+
+@media (max-width: 60em) {
+    .heading-1 {
+        font-size: 1.8rem;
+    }
+
+    .heading-2 {
+        margin-bottom: 2em;
+    }
+}
+
+.hero {
+    min-height: 92.5vh;
+    background-image: linear-gradient(to bottom right, rgba(255, 102, 31, 0.6), rgba(4, 106, 57, 0.6)),
+        url(https://sandipan-ajp-abdul-kalam-tribute.netlify.app/images/dr-apj-abdul-kalam.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.hero__banner {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    color: var(--color-white);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3.5em 3em;
+}
+
+@media (max-width: 60em) {
+    .hero {
+        background-image: linear-gradient(to bottom right, rgba(255, 102, 31, 0.6), rgba(4, 106, 57, 0.6)),
+            url(https://sandipan-ajp-abdul-kalam-tribute.netlify.app/images/A._P._J._Abdul_Kalam.jpg);
+    }
+
+    .hero__banner {
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        padding: 1.8em 0.5em;
+        text-align: center;
+    }
+
+    .hero__text {
+        font-size: calc(15rem / 16);
+    }
+}
+
+
+.main-nav {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-block: 0.75em;
+    list-style: none;
+}
+
+.main-nav__link:link,
+.main-nav__link:visited {
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.main-nav__link:hover,
+.main-nav__link:active {
+    color: var(--color-red);
+}
+
+@media (max-width: 60em) {
+    .main-nav {
+        display: none;
+    }
+}
+
+
+.life {
+    margin-top: 6rem;
+}
+
+.life__wrapper {
+    display: grid;
+    grid-template-columns: 38% 1fr;
+    gap: 3.5em;
+}
+
+.life__image {
+    object-fit: cover;
+}
+
+.life__image-caption {
+    text-align: center;
+    font-weight: 600;
+    padding-block: 0.5em;
+}
+
+.life__details {
+    padding-block: 0.5rem;
+}
+
+.life__paragraph:not(:last-child) {
+    margin-bottom: 1.5em;
+}
+
+@media (max-width: 46em) {
+    .life {
+        margin-top: 4em;
+    }
+
+    .life__wrapper {
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: 100%;
+        gap: 2em;
+    }
+
+    #image {
+        margin: 0 auto;
+    }
+}
+
+
+.books {
+    margin-block: 8em;
+}
+
+.books__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+}
+
+.books__item {
+    overflow: hidden;
+}
+
+.books__image {
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: all 0.7s;
+}
+
+.books__image:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 60em) {
+    .books {
+        margin-block: 6em;
+    }
+
+    .books__list {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 35em) {
+
+    .books {
+        margin-block: 4em;
+    }
+
+    .books__list {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: 100%;
+    }
+
+    .books__image {
+        transition: unset;
+    }
+
+    .books__image:hover {
+        transform: scale(1);
+    }
+}
+
+
+.quotes {
+    margin-bottom: 6rem;
+}
+
+.quotes__item {
+    background-color: var(--color-white);
+    padding-block: 3.25em;
+    padding-inline: 4.5em 2em;
+    box-shadow: 0 0 5px #c9c9c9;
+    border-radius: 0.75em;
+    margin-block: 2.5em;
+    position: relative;
+}
+
+.quotes__item::before {
+    content: '\201F';
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    display: inline;
+    color: var(--color-red);
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+@media (max-width: 30em) {
+    .quotes {
+        margin-bottom: 4rem;
+    }
+
+    .quotes__item {
+        padding-inline: 3em 2em;
+    }
+
+    .quotes__item::before {
+        left: 1rem;
+    }
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
